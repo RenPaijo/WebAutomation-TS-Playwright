@@ -75,6 +75,11 @@ Every run produces **two** reports:
 
 Artifacts: screenshot + video on failure, trace always on (pass and fail) — all attached to both reports automatically.
 
+> **Viewing the Allure report:** never double-click `index.html` — browsers block its data
+> files over `file://` and every widget shows "Failed to fetch". Always serve it over HTTP:
+> `npm run report:allure:serve`, `npm run report:allure`, or open the GitHub Pages URL
+> published by CI (`https://<user>.github.io/<repo>/`).
+
 ## Configuration
 
 | Variable | Default | Description |
@@ -95,4 +100,4 @@ Artifacts: screenshot + video on failure, trace always on (pass and fail) — al
 
 ## CI
 
-`.github/workflows/playwright.yml` runs on push/PR to `main`/`master`: `npm ci` → install browsers → `npm run test:ci` → generate Allure → upload both reports as artifacts (7-day retention).
+`.github/workflows/playwright.yml` runs on push/PR to `main`/`master`: `npm ci` → install browsers → `npm run test:ci` → generate Allure → upload both reports as artifacts (7-day retention) → deploy Allure to GitHub Pages (requires Pages source set to "GitHub Actions" in repo settings).

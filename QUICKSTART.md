@@ -34,8 +34,13 @@ This regenerates Playwright tests from the `.feature` files (`bddgen`) and runs 
 ```bash
 npm run report:playwright          # Default Playwright HTML report
 npm run report:allure:generate     # Build the Allure HTML report first…
-npm run report:allure              # …then open it
+npm run report:allure              # …then open it (served over HTTP)
 ```
+
+> Do not double-click `allure-report/index.html` directly: browsers block its data
+> files over `file://`, so every widget shows "Failed to fetch". The `report:allure`
+> and `report:allure:serve` scripts serve it correctly. CI also publishes it to
+> GitHub Pages on every push to `main`/`master`.
 
 ## 5. Run a Subset
 

@@ -7,6 +7,15 @@ on:
     branches: [main, master]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
 jobs:
   test:
     timeout-minutes: 30
@@ -49,3 +58,26 @@ jobs:
             allure-results/
             allure-report/
           retention-days: 7
+
+  deploy-allure:
+    needs: test
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download Allure report artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: allure-report
+          path: site-src
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site-src/allure-report
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
