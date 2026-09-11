@@ -8,10 +8,6 @@ const testDir = defineBddConfig({
   features: 'tests/features/**/*.feature',
   steps: ['tests/steps/**/*.ts', 'tests/support/**/*.ts'],
   outputDir: '.features-gen',
-  // TEMPORARY: Chapter 3-5 features currently contain scenarios (.feature) without steps,
-  // so scenarios without matching steps are skipped during generation.
-  // REMOVE this option once all steps are implemented so missing steps fail generation again.
-  missingSteps: 'skip-scenario',
 });
 
 export default defineConfig({
@@ -33,16 +29,31 @@ export default defineConfig({
     trace: 'on',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    acceptDownloads: true,
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        // Fake camera/mic so Get User Media tests run headless.
+        launchOptions: {
+          args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream'],
+        },
+      },
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        launchOptions: {
+          firefoxUserPrefs: {
+            'media.navigator.streams.fake': true,
+            'media.navigator.permission.disabled': true,
+          },
+        },
+      },
     },
   ],
 

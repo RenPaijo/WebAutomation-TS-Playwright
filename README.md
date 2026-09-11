@@ -90,7 +90,7 @@ Artifacts: screenshot + video on failure, trace always on (pass and fail) — al
 ## BDD Notes
 
 - Step patterns: `tests/steps/**/*.ts`, `tests/support/**/*.ts`. Page Objects live in `tests/pages/` so `bddgen` ignores them.
-- `missingSteps: 'skip-scenario'` in `playwright.config.ts` is **temporary** — scenarios without step definitions are skipped until all steps are implemented. Remove it afterwards so missing steps fail generation again.
+- Shared steps used by multiple menus live in `tests/steps/common.steps.ts` — never redefine the same step text twice (generation fails on duplicates or missing steps).
 - Tag conventions: `@chapter-N` per chapter, `@<menu>` per file, `@<menu>-<purpose>` per scenario (see [CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ## CI

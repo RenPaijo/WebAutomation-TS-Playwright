@@ -47,6 +47,6 @@ npx playwright test --project=firefox       # One browser
 
 ## Notes
 
-- Scenarios without step definitions yet are **skipped** by design (`missingSteps: 'skip-scenario'` in `playwright.config.ts`) — this is temporary until all steps are implemented.
+- All 82 scenarios have step definitions and run green on Chromium and Firefox (164 tests).
 - Screenshots/videos attach on failure; traces record every run — all visible in both reports.
 - Manual test cases live in `testCase/` (Markdown, one file per chapter).

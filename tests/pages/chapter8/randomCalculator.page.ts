@@ -35,6 +35,7 @@ export class RandomCalculatorPage {
   }
 
   key(label: string): Locator {
-    return this.page.locator('#calculator .keys span', { hasText: label });
+    // NOTE: the "C" key lives in .top, not .keys — search all calculator spans.
+    return this.page.locator('#calculator span', { hasText: label });
   }
 }

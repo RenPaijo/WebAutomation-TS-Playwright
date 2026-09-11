@@ -19,4 +19,4 @@ Feature: Mouse over
   @mouse-over-all-images
   Scenario: All images are displayed on the page
     Given I open the Mouse over page
-    Then the compass, calendar, award, and landscape images are displayed
+    Then all four figure images are displayed
