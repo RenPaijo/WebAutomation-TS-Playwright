@@ -9,7 +9,7 @@
     "test:headed": "bddgen && playwright test --headed",
     "test:debug": "bddgen && playwright test --debug",
     "report:playwright": "playwright show-report",
-    "report:allure:generate": "allure generate ./allure-results -o ./allure-report --clean",
+    "report:allure:generate": "allure generate ./allure-results -o ./allure-report --clean && node scripts/patch-allure-trace-viewer.cjs",
     "report:allure": "allure open ./allure-report",
     "report:allure:serve": "allure serve ./allure-results"
   },

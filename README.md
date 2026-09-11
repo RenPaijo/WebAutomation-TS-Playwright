@@ -79,6 +79,11 @@ Artifacts: screenshot + video on failure, trace always on (pass and fail) — al
 > files over `file://` and every widget shows "Failed to fetch". Always serve it over HTTP:
 > `npm run report:allure:serve`, `npm run report:allure`, or open the GitHub Pages URL
 > published by CI (`https://<user>.github.io/<repo>/`).
+>
+> **Trace viewer:** `npm run report:allure:generate` automatically swaps Allure's bundled
+> (older) Playwright trace viewer with the installed version via
+> `scripts/patch-allure-trace-viewer.cjs`, so traces open directly inside the report
+> instead of showing a version-mismatch error.
 
 ## Configuration
 
