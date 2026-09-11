@@ -12,7 +12,7 @@ Web UI test automation for the [Hands-On Selenium WebDriver with Java practice s
 | `playwright-bdd` | BDD layer — `.feature` files become Playwright tests |
 | `allure-playwright` + `allure-commandline` | Allure results + HTML report generation |
 | `@faker-js/faker` | Random test data (names, emails, addresses, …) |
-| `dotenv` / `cross-env` | Environment-based configuration |
+| `dotenv` | Environment-based configuration (`BASE_URL`, `WORKERS`) |
 
 ## Project Structure
 
@@ -30,7 +30,7 @@ Web UI test automation for the [Hands-On Selenium WebDriver with Java practice s
     └── support/                # Shared fixtures, faker helpers
 ```
 
-Coverage: Chapters 3, 4, 5, 7, 8, 9 — 82 scenarios, 27 feature files, 28 page objects.
+Coverage: Chapters 3, 4, 5, 7, 8, 9 — 82 scenarios, 27 feature files, 27 page objects.
 
 ## Prerequisites
 
