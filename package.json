@@ -1,0 +1,36 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bddgen": "bddgen",
+    "test": "bddgen && playwright test",
+    "test:ci": "bddgen && playwright test",
+    "test:headed": "bddgen && playwright test --headed",
+    "test:debug": "bddgen && playwright test --debug",
+    "report:playwright": "playwright show-report",
+    "report:allure:generate": "allure generate ./allure-results -o ./allure-report --clean",
+    "report:allure": "allure open ./allure-report",
+    "report:allure:serve": "allure serve ./allure-results"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@cucumber/cucumber": "^13.2.1",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.2",
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.12.1",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
+    "playwright-bdd": "^9.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0"
+  }
+}
