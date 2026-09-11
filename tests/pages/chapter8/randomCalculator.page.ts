@@ -1,8 +1,8 @@
 import type { Locator, Page } from '@playwright/test';
 
 // Chapter 8 — Random calculator (random-calculator.html)
-// Layout tombol identik dengan slow-calculator; #percent mengatur peluang
-// hasil salah, #correct mengatur jumlah retry hingga selalu benar.
+// Same key layout as slow-calculator; #percent sets the wrong-result chance,
+// #correct sets the retry count until results are always correct.
 export class RandomCalculatorPage {
   static readonly url = 'random-calculator.html';
 

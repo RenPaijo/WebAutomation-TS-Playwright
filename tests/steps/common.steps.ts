@@ -54,3 +54,7 @@ When('I enter username {string} and password {string}', async ({ page }, usernam
   await page.locator('#password').fill(password);
 });
 
+Then('the {string} heading is visible', async ({ page }, name: string) => {
+  await expect(page.getByRole('heading', { name })).toBeVisible();
+});
+

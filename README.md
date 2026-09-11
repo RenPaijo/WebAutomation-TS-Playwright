@@ -30,7 +30,7 @@ Web UI test automation for the [Hands-On Selenium WebDriver with Java practice s
     └── support/                # Shared fixtures, faker helpers
 ```
 
-Coverage: Chapters 3, 4, 5, 7, 8, 9 — 82 scenarios, 27 feature files, 30 page objects.
+Coverage: Chapters 3, 4, 5, 7, 8, 9 — 82 scenarios, 27 feature files, 28 page objects.
 
 ## Prerequisites
 

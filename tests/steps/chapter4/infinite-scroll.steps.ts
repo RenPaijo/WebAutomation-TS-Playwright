@@ -4,6 +4,7 @@ import { test } from '../../support/fixtures';
 import { InfiniteScrollPage } from '../../pages/chapter4/infiniteScroll.page';
 
 const { Given, When, Then } = createBdd(test);
+const initialLength = new Map<Page, number>();
 
 async function contentLength(page: Page): Promise<number> {
   return (await new InfiniteScrollPage(page).content.innerText()).length;
@@ -32,13 +33,15 @@ Then('the content count increases', async ({ page }) => {
 });
 
 When('I scroll down 3 times', async ({ page }) => {
-  let length = await contentLength(page);
+  initialLength.set(page, await contentLength(page));
+  let length = initialLength.get(page)!;
   for (let i = 0; i < 3; i += 1) {
     length = await scrollAndWaitForGrowth(page, length);
   }
 });
 
 Then('the content count grows 3 times from the start', async ({ page }) => {
-  expect(await contentLength(page)).toBeGreaterThan(0);
+  expect(initialLength.has(page), 'initial length was recorded').toBe(true);
+  expect(await contentLength(page)).toBeGreaterThan(initialLength.get(page)!);
 });
 

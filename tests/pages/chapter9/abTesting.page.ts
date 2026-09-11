@@ -1,8 +1,8 @@
 import type { Locator, Page } from '@playwright/test';
 
 // Chapter 9 — A/B Testing (ab-testing.html)
-// Konten acak: variation-a.html ("This is variation A") atau
-// variation-b.html ("This is variation B"), dimuat via AJAX ke #content.
+// Random content: variation-a.html ("This is variation A") or
+// variation-b.html ("This is variation B"), loaded via AJAX into #content.
 export class AbTestingPage {
   static readonly url = 'ab-testing.html';
 

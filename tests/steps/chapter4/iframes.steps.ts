@@ -30,11 +30,7 @@ When('I interact with the content inside the iframe', async ({ page }) => {
   await expect(new IFramesPage(page).iframeContent).not.toBeEmpty({ timeout: 20_000 });
 });
 
-When('I return to the page\'s main content', async ({ page }) => {
+When("I return to the page's main content", async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'IFrame' })).toBeVisible();
-});
-
-Then('the {string} heading is visible', async ({ page }, name: string) => {
-  await expect(page.getByRole('heading', { name })).toBeVisible();
 });
 

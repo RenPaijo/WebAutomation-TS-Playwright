@@ -22,7 +22,3 @@ export function randomUser(): RandomUser {
     address: fakerID_ID.location.streetAddress({ useFullAddress: true }),
   };
 }
-
-export function randomSentence(wordCount = 6): string {
-  return faker.lorem.sentence({ min: wordCount, max: wordCount + 4 });
-}
