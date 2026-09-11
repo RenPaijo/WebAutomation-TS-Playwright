@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker, fakerID_ID } from '@faker-js/faker';
 
 export interface RandomUser {
   fullName: string;
@@ -17,8 +17,9 @@ export function randomUser(): RandomUser {
     firstName,
     lastName,
     email: faker.internet.email({ firstName, lastName }).toLowerCase(),
-    phone: faker.phone.number(),
-    address: faker.location.streetAddress({ useFullAddress: true }),
+    // Indonesian locale for phone and address (e.g. +62 numbers, Indonesian streets/cities).
+    phone: fakerID_ID.phone.number(),
+    address: fakerID_ID.location.streetAddress({ useFullAddress: true }),
   };
 }
 
